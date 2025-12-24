@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
-  LayoutDashboard, Server, Settings, Menu, X, Database, Activity, Sun, Moon, Clock, RotateCw, Star, Globe, Shield, Cpu
+  LayoutDashboard, 
+  Server, 
+  Settings, 
+  Menu, 
+  X, 
+  Database,
+  Activity,
+  Sun,
+  Moon,
+  Clock,
+  RotateCw,
+  Star,
+  Globe,
+  Shield,
+  Cpu
 } from 'lucide-react';
 import Dashboard from './Dashboard';
 import NodeList from './NodeList';
@@ -81,6 +95,7 @@ const EpochProgress: React.FC = () => {
   );
 };
 
+// --- UPDATED TICKER: Uses real prices ---
 const StatusTicker: React.FC = () => {
   const [solPrice, setSolPrice] = useState("Loading...");
 
@@ -88,7 +103,7 @@ const StatusTicker: React.FC = () => {
     fetchSolPrice().then(setSolPrice);
     const interval = setInterval(() => {
        fetchSolPrice().then(setSolPrice);
-    }, 60000); 
+    }, 60000); // Update price every minute
     return () => clearInterval(interval);
   }, []);
 
@@ -103,6 +118,12 @@ const StatusTicker: React.FC = () => {
         <span className="flex items-center gap-1"><Cpu size={10} className="text-amber-400"/> NETWORK LOAD: 34%</span>
         <span className="flex items-center gap-1 text-emerald-400">SOL/USD: {solPrice}</span>
         <span className="flex items-center gap-1"><Database size={10} className="text-cyan-400"/> STORAGE: 1.15 PB AVAILABLE</span>
+        
+        {/* Duplicate */}
+        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> MAINNET: OPTIMAL</span>
+        <span className="flex items-center gap-1"><Globe size={10} className="text-blue-400"/> AVG PING: 42ms</span>
+        <span className="flex items-center gap-1"><Cpu size={10} className="text-amber-400"/> NETWORK LOAD: 34%</span>
+        <span className="flex items-center gap-1 text-emerald-400">SOL/USD: {solPrice}</span>
       </div>
       <style>{`
         .animate-marquee {
@@ -231,20 +252,44 @@ const LayoutContent: React.FC<{
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         <div className="h-full flex flex-col">
-          <div className="p-6 flex items-center space-x-3 border-b border-xandeum-border bg-gradient-to-b from-slate-800/20 to-transparent">
-            <div className="w-8 h-8 rounded bg-gradient-to-br from-xandeum-primary to-xandeum-accent flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/20">X</div>
-            <span className="text-xl font-bold tracking-tight text-xandeum-text">NodeScan</span>
+          <div className="p-6 border-b border-xandeum-border bg-gradient-to-b from-slate-800/20 to-transparent">
+            <div className="flex items-center space-x-3 mb-2">
+              <div className="w-8 h-8 rounded bg-gradient-to-br from-xandeum-primary to-xandeum-accent flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-emerald-500/20">X</div>
+              <span className="text-xl font-bold tracking-tight text-xandeum-text">NodeScan</span>
+            </div>
+            <div className="flex items-center gap-2 pl-1">
+               <span className="text-[10px] font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">v1.0.3</span>
+               <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+               </span>
+            </div>
           </div>
 
           <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
             <div className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 px-4 mt-6">Analytics</div>
             <SidebarItem to="/" icon={<LayoutDashboard size={20} />} label="Mission Control" active={location.pathname === '/'} onClick={() => setIsSidebarOpen(false)}/>
             <SidebarItem to="/nodes" icon={<Server size={20} />} label="pNode Directory" active={location.pathname === '/nodes'} onClick={() => setIsSidebarOpen(false)}/>
+            <SidebarItem to="#" icon={<Star size={20} />} label="Watchlist" active={false} onClick={() => setIsSidebarOpen(false)}/>
             
             <div className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 px-4 mt-12">Network Telemetry</div>
             <SidebarItem to="/gossip" icon={<Activity size={20} />} label="Gossip Health" active={location.pathname === '/gossip'} onClick={() => setIsSidebarOpen(false)}/>
             <SidebarItem to="/storage" icon={<Database size={20} />} label="Storage Alloc" active={location.pathname === '/storage'} onClick={() => setIsSidebarOpen(false)}/>
           </nav>
+
+          <div className="p-4 border-t border-xandeum-border">
+             <div className="bg-xandeum-dark/50 p-4 rounded-xl border border-xandeum-border relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <p className="text-xs text-xandeum-muted mb-2 font-mono">NETWORK STATUS</p>
+                <div className="flex items-center space-x-2">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-sm font-semibold text-emerald-400">Mainnet Beta</span>
+                </div>
+             </div>
+          </div>
         </div>
       </aside>
 

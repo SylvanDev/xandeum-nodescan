@@ -1,8 +1,9 @@
 {
-  "name": "xandeum-nodescan",
+  "name": "xandeum-dashboard-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.3",
   "type": "module",
+  "description": "Real-time Mission Control and Analytics Explorer for the Xandeum Storage Network",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
