@@ -3,7 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Xandeum NodeScan</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Xandeum NodeScan | Network Mission Control</title>
+    <meta name="title" content="Xandeum NodeScan | Network Mission Control" />
+    <meta name="description" content="Real-time telemetry and analytics dashboard for Xandeum pNodes. Monitor gossip protocol, storage allocation, and global network topology." />
+    <meta name="theme-color" content="#0B0C15" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <!-- Leaflet Map CSS & JS -->
@@ -79,7 +85,21 @@
         }
       }
     </script>
-  </head>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

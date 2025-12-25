@@ -1,12 +1,12 @@
 {
   "name": "xandeum-dashboard-app",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.8",
   "type": "module",
   "description": "Real-time Mission Control and Analytics Explorer for the Xandeum Storage Network",
   "scripts": {
     "dev": "vite",
-    "build": "node node_modules/vite/bin/vite.js build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
