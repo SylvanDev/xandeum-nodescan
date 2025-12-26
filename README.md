@@ -1,6 +1,6 @@
 # ⚡ Xandeum  — pNode Analytics Platform
 
-![Xandeum Dashboard]([https://your-image-link-here.com/screenshot.png](https://image2url.com/r2/bucket2/images/1766713496885-18dbc42c-5e0f-4d49-8e8a-e0b51fc20516.jpg))
+![Xandeum Dashboard](https://image2url.com/r2/bucket2/images/1766713496885-18dbc42c-5e0f-4d49-8e8a-e0b51fc20516.jpg)
 
 **Xandeum Pulse** is a high-performance analytics dashboard designed for monitoring the Xandeum storage layer. Developed for the Xandeum Analytics Challenge, this platform demonstrates a next-gen approach to visualizing pNode (storage provider) networks on Solana.
 
